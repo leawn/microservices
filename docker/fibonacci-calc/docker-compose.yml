@@ -6,9 +6,37 @@ services:
       - POSTGRES_PASSWORD=postgres_password
   redis:
     image: redis:latest
-  server:
+  nginx:
+    restart: always
+    image: leawn/fibonacci-calc-nginx
+    ports:
+      - 3050:80
+  api:
     image: leawn/fibonacci-calc-server
     command: sh -c "npm install && npm run start"
     working_dir: /app
     volumes:
       - ./server/:/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+  client:
+    image: leawn/fibonacci-calc
+    command: sh -c "npm install && npm run start"
+    working_dir: /app
+    volumes:
+      - ./client/:/app
+  worker:
+    image: leawn/fibonacci-calc-worker
+    command: sh -c "npm install && npm run start"
+    working_dir: /app
+    volumes:
+      - ./worker/:/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
