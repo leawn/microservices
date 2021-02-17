@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: leawn/fibonacci-calc-client
+          ports:
+            - containerPort: 3000
+# eval $(minikube docker-env) to see everything inside the k8s cluster
+# kubectl exec -it *name* sh to mess inside of the
