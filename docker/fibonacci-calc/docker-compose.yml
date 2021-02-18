@@ -7,6 +7,9 @@ services:
   redis:
     image: redis:latest
   nginx:
+    depends_on:
+      - api
+      - client
     restart: always
     image: leawn/fibonacci-calc-nginx
     ports:
@@ -27,7 +30,6 @@ services:
       - PGPORT=5432
   client:
     image: leawn/fibonacci-calc-client
-    command: sh -c "npm install && npm run start"
     working_dir: /app
     volumes:
       - ./client/:/app
