@@ -14,4 +14,7 @@ spec:
     spec:
       containers:
         - name: posts
-          image: leawn/mini-micro-posts:0.0.1
+          image: leawn/mini-micro-posts:latest
+
+# *rebuild docker images*
+# > kubectl rollout restart deployment *name of deployment*
