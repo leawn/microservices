@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: leawn/ticket-market-project-auth
+          image: us.gcr.io/ticket-market-project/auth
 ---
 apiVersion: v1
 kind: Service

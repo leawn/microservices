@@ -5,10 +5,12 @@ deploy:
     manifests:
       - ./infrastructure/k8s/*
 build:
-  local:
-    push: false
+  #local:
+  #  push: false
+  googleCloudBuild:
+    projectId: ticket-market-project
   artifacts:
-    - image: leawn/ticket-market-project-auth
+    - image: us.gcr.io/ticket-market-project/auth
       context: auth
       docker:
         dockerfile: Dockerfile
