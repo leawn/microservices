@@ -1,10 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { body } from 'express-validator';
 import jwt from "jsonwebtoken";
+import { validateRequest, BadRequestError } from "@leawn-tickets-market/common";
 
 import { User } from '../models/user';
-import { validateRequest } from "../middlewares/validate-requests";
-import { BadRequestError } from "../errors/bad-request-error";
 import { Password } from '../util/password';
 
 const router = express.Router();

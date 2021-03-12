@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 
-import { currentUser } from "../middlewares/current-user";
+import { currentUser } from "@leawn-tickets-market/common";
 
 const router = express.Router();
 
