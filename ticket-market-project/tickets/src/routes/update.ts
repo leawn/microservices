@@ -4,7 +4,7 @@ import {
     validateRequest,
     NotFoundError,
     requireAuth,
-    NotAuthorizedError
+    NotAuthorizedError, BadRequestError
 } from "@leawn-tickets-market/common";
 import { Ticket } from "../models/ticket";
 import {natsWrapper} from "../nats-wrapper";
@@ -30,6 +30,10 @@ router.put(
 
         if (!ticket) {
             throw new NotFoundError();
+        }
+
+        if (ticket.orderId) {
+            throw new BadRequestError("Cannot edit a reserved ticket");
         }
 
         if (ticket.userId !== req.currentUser!.id) {

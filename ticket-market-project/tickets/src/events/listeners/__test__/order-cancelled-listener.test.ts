@@ -22,7 +22,8 @@ const setup = async () => {
         id: orderId,
         version: 0,
         ticket: {
-            id: ticket.id
+            id: ticket.id,
+            price: ticket.price
         }
     }
 
