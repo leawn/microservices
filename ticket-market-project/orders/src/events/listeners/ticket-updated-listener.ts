@@ -15,7 +15,7 @@ export class TicketUpdatedListener extends Listener<TicketUpdatedEvent> {
         }
 
         const { title, price, version } = data;
-        ticket.set({ title, price, version });
+        ticket.set({ title, price }); // here must add version if there is no if-current npm module for mongoose
         await ticket.save();
 
         msg.ack();

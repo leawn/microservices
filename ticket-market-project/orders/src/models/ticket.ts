@@ -40,16 +40,17 @@ const ticketSchema = new mongoose.Schema({
 });
 
 ticketSchema.set("versionKey", "version");
-/*ticketSchema.plugin(updateIfCurrentPlugin);*/
+ticketSchema.plugin(updateIfCurrentPlugin);
 
-ticketSchema.pre("save", function(done) {
+/*ticketSchema.pre("save", function(done) {
     // @ts-ignore
     this.$where = {
         version: this.get("version") - 1
     }
 
     done();
-});
+});*/
+// ^^^ must implement versioning without that npm module mongoose-if-current
 
 ticketSchema.statics.findByEvent = (event: { id: string, version: number }) => {
     return Ticket.findOne({
