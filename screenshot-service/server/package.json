@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --poll ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@leawn-screenshot-service/common": "^1.0.2",
+    "@types/puppeteer": "^5.4.3",
+    "@types/shelljs": "^0.8.8",
+    "cloudinary": "^1.25.1",
+    "node-nats-streaming": "^0.3.2",
+    "puppeteer": "^8.0.0",
+    "shelljs": "^0.8.4",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  }
+}
