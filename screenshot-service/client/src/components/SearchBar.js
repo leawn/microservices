@@ -12,7 +12,7 @@ class SearchBar extends Component {
         return (
             <div className="ui segment">
                 <form className="ui form" onSubmit={this.onFormSubmit}>
-                    <div className={`ui labeled field icon input ${!this.prop.auth ? "disabled" : ""}`}>
+                    <div className={`ui labeled field fluid icon input ${!this.props.auth ? "disabled" : ""}`}>
                         <div className="ui label">
                             http://
                         </div>
