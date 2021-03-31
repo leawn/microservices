@@ -1,0 +1,28 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --poll ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@leawn-screenshot-service/common": "^1.0.2",
+    "@types/cookie-session": "^2.0.42",
+    "@types/express": "^4.17.11",
+    "@types/mongoose": "^5.10.4",
+    "@types/passport": "^1.0.6",
+    "@types/passport-google-oauth20": "^2.0.7",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2",
+    "node-nats-streaming": "^0.3.2",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  }
+}
